@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+int main() {
+   int n,a[100][100],i,j,k,sum;
+   scanf("%d",&n);
+   a[1][1]=a[2][1]=a[2][2]=1;
+   printf("[[%d],[%d,%d],",a[1][1],a[2][1],a[2][2]);
+   k=3;
+   for(i=3;i<=n;i++){
+       
+       for(j=1;j<=k;j++){
+           if(j==1){
+               printf("[1,");
+               a[i][j]=1;
+               
+           }else
+           if(j==k && k!=n){
+               
+               printf("1],");
+               a[i][j]=1;
+           }
+           else
+           if(j==k && k==n){
+               
+               printf("1]]");
+               a[i][j]=1;
+           }
+           else{
+               sum=a[i-1][j-1]+a[i-1][j];
+               printf("%d,",sum);
+               a[i][j]=sum;
+       }
+       
+   }
+   k++;
+   sum=0;
+}
+}
